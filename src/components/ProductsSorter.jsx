@@ -61,7 +61,7 @@ const FilterContainer = styled.div`
     position: relative;
     margin-right: 2.5rem;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 1.125rem;
     color: #7c899c;
     div:first-child {
         display: flex;

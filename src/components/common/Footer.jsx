@@ -9,7 +9,7 @@ const Bottom = styled.div`
     max-width: 1464px;
     margin: 0 auto;
     font-weight: 600;
-    font-size: 1.125rempx;
+    font-size: 1.125rem;
     line-height: 150%;
     img {
         margin: 0.5rem;
