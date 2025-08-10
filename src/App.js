@@ -1,9 +1,8 @@
 import styled from "styled-components";
 import { ToastContainer } from "react-toastify";
-import Navbar from "./components/common/Navbar/Navbar";
-import Main from "./components/Main";
-import ProductsList from "./components/ProductsList";
-import Footer from "./components/common/Footer";
+import { Navbar, Footer } from "components/layout"
+import Main from "components/Main";
+import ProductsList from "components/ProductsList";
 import "react-toastify/dist/ReactToastify.css";
 
 const Container = styled.div`

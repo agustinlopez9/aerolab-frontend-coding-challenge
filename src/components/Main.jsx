@@ -1,4 +1,9 @@
 import styled from "styled-components";
+import { ArrowDownIcon } from "assets/icons";
+import {
+  HeroDesktop,
+  WavePattern
+} from "assets/illustrations";
 
 const MainSection = styled.main`
   display: flex;
@@ -53,12 +58,13 @@ const MainSection = styled.main`
     left: 70px;
     bottom: 105px;
     float: right;
-    background-image: url("assets/illustrations/hero-desktop.png");
+    background-image: url(${HeroDesktop});
     background-size: 875px;
     background-repeat: no-repeat;
     background-position: bottom -40px center;
     width: 897px;
     height: 795px;
+      z-index: 1;
     div {
       width: 722px;
       height: 600px;
@@ -69,7 +75,7 @@ const MainSection = styled.main`
       );
       box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.12);
       border-radius: 104px;
-      z-index: -1;
+      z-index: 1;
     }
   }
   .wave-pattern {
@@ -79,8 +85,8 @@ const MainSection = styled.main`
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: -20;
-    background-image: url("assets/illustrations/single-wave-pattern.svg");
+    z-index: 0;
+    background-image: url(${WavePattern});
   }
 `;
 
@@ -117,8 +123,8 @@ function Main() {
         <StyledButton href="/#products-list">
           VIEW ALL PRODUCTS
           <img
-            alt="logo-menu"
-            src={process.env.PUBLIC_URL + "/assets/icons/arrow-down.svg"}
+            alt="arrow-down.svg"
+            src={ArrowDownIcon}
           />
         </StyledButton>
       </div>

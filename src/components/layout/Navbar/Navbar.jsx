@@ -6,12 +6,14 @@ import { useInfo } from "../../../context/userContext";
 
 import PointsItem, { PointsText } from "./components/PointsItem";
 import { addPoints, getUser } from "../../../services/userService";
-import AerolabLogo from "assets/icons/aerolab-logo-1.svg";
-import AeropayFirstIcon from "assets/icons/aeropay-1.svg";
-import AeropaySecondIcon from "assets/icons/aeropay-2.svg";
-import AeropayThirdIcon from "assets/icons/aeropay-3.svg";
-import ArrowUpIcon from "assets/icons/chevron-active.svg";
-import ArrowDownIcon from "assets/icons/chevron-default.svg";
+import {
+  AerolabLogo,
+  AeropayFirstIcon,
+  AeropaySecondIcon,
+  AeropayThirdIcon,
+  MenuActiveIcon,
+  MenuIcon
+} from "assets/icons";
 import WavePattern from "assets/illustrations/wave-pattern.png";
 
 const Header = styled.header`
@@ -187,7 +189,7 @@ function Navbar() {
         <img
           alt="menu-icon"
           className={`menu-icon ${menu ? "active" : "disabled"}`}
-          src={menu ? ArrowUpIcon : ArrowDownIcon}
+          src={menu ? MenuActiveIcon : MenuIcon}
         />
       </PointsButton>
       {menu && (

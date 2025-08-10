@@ -1,0 +1,10 @@
+export { default as AerolabLogo } from "./aerolab-logo-1.svg";
+export { default as AeropayFirstIcon } from "./aeropay-1.svg";
+export { default as AeropaySecondIcon } from "./aeropay-2.svg";
+export { default as AeropayThirdIcon } from "./aeropay-3.svg";
+export { default as MenuActiveIcon } from "./chevron-active.svg";
+export { default as MenuIcon } from "./chevron-default.svg";
+export { default as ArrowDownIcon } from "./arrow-down.svg";
+export { default as GithubActiveIcon } from "./github-active.svg";
+export { default as GithubIcon } from "./github-default.svg";
+export { default as MenuDropdownIcon } from "./menu-dropdown.svg";
