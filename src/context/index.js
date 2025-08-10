@@ -1,0 +1,1 @@
+export { useInfo as useUserContext } from "./userContext";

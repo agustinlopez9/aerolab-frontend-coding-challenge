@@ -1,9 +1,10 @@
 import styled from "styled-components";
-import { ArrowDownIcon } from "assets/icons";
+import { ArrowDownIcon } from "assets/Icons";
 import {
   HeroDesktop,
   WavePattern
 } from "assets/illustrations";
+import { gradientBackground } from "./theme/palette";
 
 const MainSection = styled.main`
   display: flex;
@@ -40,9 +41,8 @@ const MainSection = styled.main`
     }
   }
   .title :nth-child(2) {
-    background: -webkit-linear-gradient(to right, #176feb 0%, #ff80ff 100%);
-    background: -moz-linear-gradient(to right, #176feb 0%, #ff80ff 100%);
-    background: linear-gradient(to right, #176feb 0%, #ff80ff 100%);
+    ${gradientBackground}
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
@@ -103,10 +103,7 @@ const StyledButton = styled.a`
   height: 80px;
   border: none;
   border-radius: 1.5rem;
-  background: #176feb;
-  background: -webkit-linear-gradient(to right, #176feb 0%, #ff80ff 100%);
-  background: -moz-linear-gradient(to right, #176feb 0%, #ff80ff 100%);
-  background: linear-gradient(to right, #176feb 0%, #ff80ff 100%);
+  ${gradientBackground}
 `;
 
 function Main() {
@@ -122,10 +119,7 @@ function Main() {
         </p>
         <StyledButton href="/#products-list">
           VIEW ALL PRODUCTS
-          <img
-            alt="arrow-down.svg"
-            src={ArrowDownIcon}
-          />
+          <ArrowDownIcon />
         </StyledButton>
       </div>
       <div className="background-image">

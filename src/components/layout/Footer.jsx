@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { GithubIcon } from "assets/icons";
+import { GithubIcon } from "assets/Icons";
 
 const Bottom = styled.div`
   display: flex;
@@ -24,10 +24,7 @@ const Bottom = styled.div`
 function Footer() {
   return (
     <Bottom>
-      <img
-        src={GithubIcon}
-        alt="github-default.svg"
-      />
+      <GithubIcon />
       <a
         href="https://github.com/agustinlopez9/aerolab-frontend-coding-challenge"
         target="_blank"

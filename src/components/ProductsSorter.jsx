@@ -1,7 +1,8 @@
 import { useRef, useState } from "react";
 import styled from "styled-components";
-import useClickOutside from "./../hooks/useClickOutside";
-import { MenuDropdownIcon } from "assets/icons";
+import { useClickOutside } from "hooks";
+import { MenuDropdownIcon } from "assets/Icons";
+import { gradientBackground } from "./theme/palette";
 
 const SortDiv = styled.div`
   display: flex;
@@ -24,10 +25,7 @@ const SortDiv = styled.div`
     display: none;
   }
   input:checked ~ .sort-button {
-    background: #176feb;
-    background: -webkit-linear-gradient(to right, #176feb 0%, #ff80ff 100%);
-    background: -moz-linear-gradient(to right, #176feb 0%, #ff80ff 100%);
-    background: linear-gradient(to right, #176feb 0%, #ff80ff 100%);
+    ${gradientBackground}
     span {
       -webkit-text-fill-color: #fff;
     }
@@ -49,10 +47,7 @@ const SortButton = styled.div`
   border-radius: 1rem;
   background: #e5f0ff;
   span {
-    background: #176feb;
-    background: -webkit-linear-gradient(to right, #176feb 0%, #ff80ff 100%);
-    background: -moz-linear-gradient(to right, #176feb 0%, #ff80ff 100%);
-    background: linear-gradient(to right, #176feb 0%, #ff80ff 100%);
+    ${gradientBackground}
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -165,7 +160,7 @@ function ProductsSorter({
       <FilterContainer ref={menuRef}>
         <div onClick={() => setMenu(!menu)}>
           {filter}
-          <img src={MenuDropdownIcon} alt="menu-dropdown.svg" />
+          <MenuDropdownIcon />
         </div>
 
         {menu && (

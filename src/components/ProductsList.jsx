@@ -5,6 +5,7 @@ import { useInfo } from "../context/userContext";
 import { getProducts, redeemProduct } from "../services/productsServices";
 import ProductsSorter from "./ProductsSorter";
 import { getHistory, getUser } from "../services/userService";
+import { gradientBackground } from "./theme/palette";
 
 const StyledContainer = styled.div`
     display: flex;
@@ -91,10 +92,7 @@ const Button = styled.button`
         props.primary
             ? `
                 color: #fff;
-                background: #176feb;
-                background: -webkit-linear-gradient(to right, #176feb 0%, #ff80ff 100%);
-                background: -moz-linear-gradient(to right, #176feb 0%, #ff80ff 100%);
-                background: linear-gradient(to right, #176feb 0%, #ff80ff 100%);
+                ${gradientBackground}
             `
             : `
                 color: #7C899C;
