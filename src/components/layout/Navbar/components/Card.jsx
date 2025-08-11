@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Button, RadioInput } from "components/common";
 import { AeropaySecondIcon, AeropayThirdIcon } from "assets/Icons";
-import { WavePattern } from "assets/illustrations";
+import { CardWavePattern } from "assets/illustrations";
 
 const AeropayMenu = styled.div`
   position: absolute;
@@ -50,7 +50,7 @@ const AeropayMenu = styled.div`
       right: 0px;
       position: absolute;
       background-repeat: repeat;
-      background-image: url(${WavePattern});
+      background-image: url(${CardWavePattern});
       background-position: top -20px center;
       background-size: 300px;
     }

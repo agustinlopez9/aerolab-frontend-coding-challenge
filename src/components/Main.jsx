@@ -1,20 +1,17 @@
 import styled from "styled-components";
 import { ArrowDownIcon } from "assets/Icons";
 import {
-  HeroDesktop,
-  WavePattern
+  HeroDesktop
 } from "assets/illustrations";
 import { gradientBackground } from "./theme/palette";
 
 const MainSection = styled.main`
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   align-items: center;
-  width: 100%;
-  height: 90vh;
-  max-width: 1464px;
-  margin: 80px auto;
+  justify-content: space-between;
+  position: relative;
+  top: 2.25rem;
+  margin-bottom: 5rem;
   .title {
     width: 602px;
     display: flex;
@@ -54,43 +51,27 @@ const MainSection = styled.main`
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    position: relative;
-    left: 70px;
-    bottom: 105px;
-    float: right;
     background-image: url(${HeroDesktop});
+    position: relative;
+    bottom: 0.5rem;
+    height: 700px;
     background-size: 875px;
     background-repeat: no-repeat;
     background-position: bottom -40px center;
-    width: 897px;
-    height: 795px;
-      z-index: 1;
     div {
       width: 722px;
       height: 600px;
-      background: linear-gradient(
-        102.47deg,
-        rgba(23, 111, 235, 0.5) -5.34%,
-        rgba(255, 128, 255, 0.5) 106.58%
-      );
+      ${gradientBackground}
+      opacity: 0.51;
       box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.12);
-      border-radius: 104px;
-      z-index: 1;
+      border-radius: 6.5rem;
+      z-index: -1;
     }
-  }
-  .wave-pattern {
-    position: absolute;
-    width: 100%;
-    top: 15%;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 0;
-    background-image: url(${WavePattern});
   }
 `;
 
-const StyledButton = styled.a`
+const StyledLink = styled.a`
+  margin-top: 2.875rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -117,15 +98,14 @@ function Main() {
           Here you’ll be able to exchange all of your hard-earned
           <br /> Aeropoints and exchange them for cool tech.
         </p>
-        <StyledButton href="/#products-list">
+        <StyledLink href="/#products-list">
           VIEW ALL PRODUCTS
           <ArrowDownIcon />
-        </StyledButton>
+        </StyledLink>
       </div>
       <div className="background-image">
         <div></div>
       </div>
-      <div className="wave-pattern" />
     </MainSection>
   );
 }
