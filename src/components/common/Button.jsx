@@ -7,8 +7,8 @@ const Button = styled.button`
   align-items: center;
   text-align: center;
   margin: 0 auto;
-  width: ${props => props.width};
-  height: ${props => props.height};
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
   cursor: pointer;
   border: none;
   border-radius: 1rem;

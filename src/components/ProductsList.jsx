@@ -116,7 +116,7 @@ function ProductsList() {
   useEffect(() => {
     itemsRef.current = itemsRef.current.slice(
       0,
-      Object.entries(products).length
+      Object.entries(products).length,
     );
   }, [products]);
 
@@ -143,7 +143,7 @@ function ProductsList() {
             <p>
               <span style={{ color: "#252F3D" }}>{productName}</span> redeemed
               successfully
-            </p>
+            </p>,
           );
           itemsRef.current[index].style.opacity = "100%";
           setLoading(0);

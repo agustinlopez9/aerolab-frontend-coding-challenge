@@ -5,23 +5,23 @@ const UserContext = createContext();
 UserContext.displayName = "userContext";
 
 export function useInfo() {
-    return useContext(UserContext);
+  return useContext(UserContext);
 }
 
 export function UserProvider({ children }) {
-    const [user, setUser] = useState();
-    useEffect(() => {
-        async function getData() {
-            const user = await getUser();
-            setUser(user.data);
-        }
-        getData();
-    }, []);
+  const [user, setUser] = useState();
+  useEffect(() => {
+    async function getData() {
+      const user = await getUser();
+      setUser(user.data);
+    }
+    getData();
+  }, []);
 
-    const value = {
-        user,
-        setUser,
-    };
+  const value = {
+    user,
+    setUser,
+  };
 
-    return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
+  return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 }

@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import { ArrowDownIcon } from "assets/Icons";
-import {
-  HeroDesktop
-} from "assets/illustrations";
+import { HeroDesktop } from "assets/illustrations";
 import { gradientBackground } from "./theme/palette";
 
 const MainSection = styled.main`

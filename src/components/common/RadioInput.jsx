@@ -36,7 +36,7 @@ function RadioInput({ name, currentState, setState, value }) {
       />
       <GradientText>{value}</GradientText>
     </RadioInputLabel>
-   );
+  );
 }
 
 export default RadioInput;

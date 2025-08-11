@@ -35,7 +35,8 @@ const PointsButton = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 8px 16px 8px 16px;
-  width: 172px;
+  width: 100%;
+  max-width: 172px;
   height: 48px;
   cursor: pointer;
   background-color: #fff;
@@ -90,7 +91,7 @@ function Navbar() {
       <AerolabLogoIcon width="126px" />
       <PointsButton onClick={() => setMenu(!menu)}>
         <AeropayFirstIcon height="32px" />
-        <GradientText>{(user && user.points) || "10.000"}</GradientText>
+        <GradientText>{user ? user.points : "-"}</GradientText>
         {menu ? (
           <MenuActiveIcon className="menu-icon active" />
         ) : (

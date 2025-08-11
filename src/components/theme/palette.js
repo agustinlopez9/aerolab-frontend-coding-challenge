@@ -10,4 +10,3 @@ export const gradientBackground = `background: ${palette.gradientPrimary};
 background: -webkit-linear-gradient(102.47deg, ${palette.gradientPrimary} -5.34%, ${palette.gradientSecondary} 106.58%);
 background: -moz-linear-gradient(102.47deg, ${palette.gradientPrimary} -5.34%, ${palette.gradientSecondary} 106.58%);
 background: linear-gradient(102.47deg, ${palette.gradientPrimary} -5.34%, ${palette.gradientSecondary} 106.58%);`;
-

@@ -1,5 +1,10 @@
 import styled from "styled-components";
-import { Navbar, Footer, WaveBackground, StyledToastContainer } from "components/layout";
+import {
+  Navbar,
+  Footer,
+  WaveBackground,
+  StyledToastContainer,
+} from "components/layout";
 import Main from "components/Main";
 import ProductsList from "components/ProductsList";
 
