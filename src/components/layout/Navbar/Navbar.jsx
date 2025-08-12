@@ -18,7 +18,7 @@ const Header = styled.header`
   display: flex;
   position: relative;
   margin: 0 auto;
-  padding: 2.5rem 0 0 0;
+  padding: 2.5rem 0;
   justify-content: space-between;
   align-items: center;
   width: 100%;
@@ -43,10 +43,10 @@ const PointsButton = styled.div`
   text-align: center;
   border: 1px solid #dae4f2;
   border-radius: 1rem;
+  z-index: 20;
   img {
     width: 32px;
   }
-  z-index: 20;
   .menu-icon {
     width: 1.25rem;
     margin-left: 0.5rem;

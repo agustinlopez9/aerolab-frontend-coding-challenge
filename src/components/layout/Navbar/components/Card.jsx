@@ -5,7 +5,7 @@ import { CardWavePattern } from "assets/illustrations";
 
 const AeropayMenu = styled.div`
   position: absolute;
-  top: 4.5rem;
+  top: 6rem;
   right: 0;
   width: 312px;
   height: 404px;

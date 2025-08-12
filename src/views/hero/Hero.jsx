@@ -7,7 +7,7 @@ const HeroContainer = styled.main`
   align-items: center;
   justify-content: space-between;
   position: relative;
-  top: 3.75rem;
+  top: 2.375rem;
   margin-bottom: 5rem;
 `;
 

@@ -4,7 +4,7 @@ import { SingleWavePattern } from "assets/illustrations";
 
 const WavePatternBackground = styled.div`
   position: absolute;
-  top: ${(props) => props.top || "155px"};
+  top: ${(props) => props.top};
   width: 100%;
   height: 756px;
   background-image: url(${SingleWavePattern});
@@ -14,8 +14,8 @@ const WavePatternBackground = styled.div`
 function WaveBackground() {
   return (
     <Fragment>
-      <WavePatternBackground top="161px" />
-      <WavePatternBackground top="147.5px" />
+      <WavePatternBackground top="210px" />
+      <WavePatternBackground top="196.5px" />
     </Fragment>
   );
 }
