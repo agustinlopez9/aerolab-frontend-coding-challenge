@@ -83,13 +83,14 @@ function Card({ points, setPoints, handleAddPoints, user }) {
       </div>
       <form>
         <div className="points-selector">
-          {Points.map((point) => (
+          {Points.map((value) => (
             <RadioInput
-              key={point}
+              key={value}
               name="points"
+              title={value}
               currentState={points}
               setState={setPoints}
-              value={point}
+              value={value}
             />
           ))}
         </div>

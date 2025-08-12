@@ -25,12 +25,12 @@ function App() {
     <Container>
       <WaveBackground />
       <div className="App">
-        <StyledToastContainer position="bottom-left" />
         <Navbar />
         <Hero />
         <ProductsList />
         <Footer />
       </div>
+      <StyledToastContainer position="bottom-left" />
     </Container>
   );
 }

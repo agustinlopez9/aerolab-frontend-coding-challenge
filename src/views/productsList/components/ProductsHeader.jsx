@@ -1,28 +1,30 @@
 import { useRef, useState } from "react";
 import styled from "styled-components";
 import { useClickOutside } from "hooks";
+import { RadioInput } from "components/common";
+import { gradientBackground, palette } from "components/theme/palette";
 import { MenuDropdownIcon } from "assets/Icons";
-import { gradientBackground } from "components/theme/palette";
+import { filterValues, sortingValues, handleSort } from "./utils";
 
-const SortDiv = styled.div`
+const ProductsHeaderContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   width: 100%;
   max-width: 1464px;
-  h3 {
-    padding: 1rem;
-    color: #7c899c;
+  margin-bottom: 2rem;
+  .filter-by,
+  .sort-by {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-right: 1rem;
+    color: ${palette.textSecondary};
     font-weight: 600;
     font-size: 1.125rem;
   }
   .sort-by {
     padding-left: 2.25rem;
-    border-left: 2px solid #dae4f2;
-  }
-
-  input {
-    display: none;
+    border-left: 2px solid ${palette.border};
   }
   input:checked ~ .sort-button {
     ${gradientBackground}
@@ -32,35 +34,13 @@ const SortDiv = styled.div`
   }
 `;
 
-const SortButton = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 165px;
-  height: 43px;
-  margin: 0.25rem;
-  font-weight: 600;
-  font-size: 1.125rem;
-  color: #fff;
-  cursor: pointer;
-  border: none;
-  border-radius: 1rem;
-  background: #e5f0ff;
-  span {
-    ${gradientBackground}
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-`;
-
 const FilterContainer = styled.div`
   position: relative;
   margin-right: 2.5rem;
   font-weight: 600;
   font-size: 1.125rem;
-  color: #7c899c;
-  div:first-child {
+  color: ${palette.textSecondary};
+  .filter-select {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -68,8 +48,8 @@ const FilterContainer = styled.div`
     padding: 1rem;
     width: 256px;
     height: 59px;
-    background: #ffffff;
-    border: 1px solid #dae4f2;
+    background: ${palette.whiteBackground};
+    border: 1px solid ${palette.border};
     border-radius: 1rem;
     user-select: none;
     cursor: pointer;
@@ -107,7 +87,13 @@ const Filter = styled.div`
   }
 `;
 
-function ProductsSorter({
+const SortContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 0.75rem;
+`;
+
+function ProductsHeader({
   products,
   changeFilteredProducts,
   filter,
@@ -115,37 +101,13 @@ function ProductsSorter({
   filteredProducts,
 }) {
   const [menu, setMenu] = useState(false);
+  const [sorting, setSorting] = useState("recent");
   const menuRef = useRef();
   useClickOutside(menuRef, setMenu);
-
-  const handleSortLow = () => {
-    var sortedProducts = [...filteredProducts];
-    sortedProducts.sort((a, b) => {
-      return a.cost - b.cost;
-    });
-    changeFilteredProducts(sortedProducts);
-  };
-
-  const handleSortHigh = () => {
-    var sortedProducts = [...filteredProducts];
-    sortedProducts.sort((a, b) => {
-      return b.cost - a.cost;
-    });
-    changeFilteredProducts(sortedProducts);
-  };
-
-  const handleSortRecent = () => {
-    let sortedProducts = [...filteredProducts];
-    sortedProducts.sort((a, b) => {
-      return a._id < b._id ? -1 : a._id > b._id ? 1 : 0;
-    });
-    changeFilteredProducts(sortedProducts);
-  };
 
   const handleChangeFilter = (filterName) => {
     setMenu(false);
     changeFilter(filterName);
-    document.getElementById("recent-sort").click();
     if (filterName === "All Products") {
       changeFilteredProducts(products);
     } else {
@@ -155,70 +117,54 @@ function ProductsSorter({
   };
 
   return (
-    <SortDiv>
-      <h3>Filter by:</h3>
+    <ProductsHeaderContainer>
+      <span className="filter-by">Filter by:</span>
       <FilterContainer ref={menuRef}>
-        <div onClick={() => setMenu(!menu)}>
+        <div className="filter-select" onClick={() => setMenu(!menu)}>
           {filter}
           <MenuDropdownIcon />
         </div>
-
         {menu && (
           <Filter>
             <ul>
-              <li onClick={() => handleChangeFilter("All Products")}>
-                All Products
-              </li>
-              <li onClick={() => handleChangeFilter("Gaming")}>Gaming</li>
-              <li onClick={() => handleChangeFilter("Audio")}>Audio</li>
-              <li onClick={() => handleChangeFilter("Smart Home")}>
-                Smart Home
-              </li>
-              <li onClick={() => handleChangeFilter("Monitors & TV")}>
-                Monitors & TV
-              </li>
+              {filterValues.map((filterName) => (
+                <li
+                  key={filterName}
+                  onClick={() => handleChangeFilter(filterName)}
+                >
+                  {filterName}
+                </li>
+              ))}
             </ul>
           </Filter>
         )}
       </FilterContainer>
-      <h3 className="sort-by">Sort by:</h3>
-      <label>
-        <input
-          id="recent-sort"
-          type="radio"
-          name="order"
-          value="recent"
-          defaultChecked="true"
-          onClick={handleSortRecent}
-        />
-        <SortButton className="sort-button">
-          <span>Most recent</span>
-        </SortButton>
-      </label>
-      <label>
-        <input
-          type="radio"
-          name="order"
-          value="lowest"
-          onClick={handleSortLow}
-        />
-        <SortButton className="sort-button">
-          <span>Lowest Price</span>
-        </SortButton>
-      </label>
-      <label>
-        <input
-          type="radio"
-          name="order"
-          value="highest"
-          onClick={handleSortHigh}
-        />
-        <SortButton className="sort-button">
-          <span>Highest Price</span>
-        </SortButton>
-      </label>
-    </SortDiv>
+      <span className="sort-by">Sort by:</span>
+      <SortContainer>
+        {sortingValues.map((sort) => (
+          <RadioInput
+            key={sort.value}
+            id={`${sort.value}-sort`}
+            name="order"
+            value={sort.value}
+            title={sort.title}
+            currentState={sorting}
+            defaultChecked={sort.defaultChecked}
+            onClick={() =>
+              handleSort(
+                sort.value,
+                setSorting,
+                filteredProducts,
+                changeFilteredProducts,
+              )
+            }
+            width="165px"
+            height="43px"
+          />
+        ))}
+      </SortContainer>
+    </ProductsHeaderContainer>
   );
 }
 
-export default ProductsSorter;
+export default ProductsHeader;

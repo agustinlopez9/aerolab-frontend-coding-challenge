@@ -8,11 +8,11 @@ const BackgroundImage = styled.div`
   align-items: flex-end;
   background-image: url(${HeroDesktop});
   position: relative;
-  bottom: 1.5rem;
+  bottom: 1.75rem;
   height: 700px;
-  background-size: 875px;
+  background-size: 900px;
   background-repeat: no-repeat;
-  background-position: bottom -40px center;
+  background-position: bottom -55px center;
   div {
     width: 722px;
     height: 600px;

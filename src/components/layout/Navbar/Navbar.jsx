@@ -18,11 +18,10 @@ const Header = styled.header`
   display: flex;
   position: relative;
   margin: 0 auto;
-  padding: 1rem 0;
+  padding: 2.5rem 0 0 0;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-
   img {
     user-select: none;
     -webkit-user-select: none;

@@ -13,7 +13,7 @@ const StyledContainer = styled.div`
   flex-direction: column;
   width: 100%;
   max-width: 1464px;
-  margin: 10rem auto;
+  margin: 10rem auto 2rem auto;
 `;
 
 const StyledTitle = styled.h3`
@@ -30,13 +30,14 @@ const StyledTitle = styled.h3`
 const ProductsContainer = styled.div`
   display: flex;
   flex-flow: row wrap;
+  gap: 1.5rem;
   width: 100%;
 `;
 
 const ProductCard = styled.div`
   width: 348px;
   height: 506px;
-  margin: 2rem 0.5rem;
+  margin-bottom: 5rem;
   background-color: #fff;
   .product {
     display: flex;
@@ -112,7 +113,6 @@ function ProductsList() {
   const [filteredProducts, setFilteredProducts] = useState({});
   const { user, setUser } = useInfo();
   const itemsRef = useRef([]);
-  // you can access the elements with itemsRef.current[n]
 
   useEffect(() => {
     itemsRef.current = itemsRef.current.slice(

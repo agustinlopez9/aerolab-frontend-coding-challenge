@@ -5,8 +5,8 @@ const RadioInputLabel = styled.label`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
+  width: ${(props) => props.width ?? "100%"};
+  height: ${(props) => props.height ?? "100%"};
   font-size: 1.125rem;
   font-weight: 600;
   cursor: pointer;
@@ -24,9 +24,9 @@ const RadioInputLabel = styled.label`
   }
 `;
 
-function RadioInput({ name, currentState, setState, value }) {
+function RadioInput({ name, currentState, setState, title, value, ...rest }) {
   return (
-    <RadioInputLabel>
+    <RadioInputLabel {...rest}>
       <input
         type="radio"
         name={name}
@@ -34,7 +34,7 @@ function RadioInput({ name, currentState, setState, value }) {
         checked={currentState === value}
         value={value}
       />
-      <GradientText>{value}</GradientText>
+      <GradientText>{title}</GradientText>
     </RadioInputLabel>
   );
 }

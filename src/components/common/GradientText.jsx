@@ -5,6 +5,7 @@ export const GradientText = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   border-radius: 0.75rem;
   width: inherit;
   height: inherit;
