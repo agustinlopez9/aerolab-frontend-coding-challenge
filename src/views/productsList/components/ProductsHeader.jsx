@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import styled from "styled-components";
 import { useClickOutside } from "hooks";
 import { MenuDropdownIcon } from "assets/Icons";
-import { gradientBackground } from "./theme/palette";
+import { gradientBackground } from "components/theme/palette";
 
 const SortDiv = styled.div`
   display: flex;
@@ -66,8 +66,8 @@ const FilterContainer = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    width: 222px;
-    height: 22px;
+    width: 256px;
+    height: 59px;
     background: #ffffff;
     border: 1px solid #dae4f2;
     border-radius: 1rem;
@@ -82,13 +82,13 @@ const Filter = styled.div`
   justify-content: center;
   align-items: center;
   padding: 0.5rem 0px;
-  height: 253px;
-  width: 254px;
+  height: 271px;
+  width: 256px;
   border: 1px solid #dae4f2;
   border-radius: 0.5rem;
   background: #fff;
   position: absolute;
-  top: 4rem;
+  top: 67.5px;
   ul {
     margin: 0;
     padding: 0;

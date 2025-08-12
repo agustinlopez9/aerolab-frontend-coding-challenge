@@ -14,8 +14,8 @@ const WavePatternBackground = styled.div`
 function WaveBackground() {
   return (
     <Fragment>
-      <WavePatternBackground top="155px" />
-      <WavePatternBackground top="141.5px" />
+      <WavePatternBackground top="161px" />
+      <WavePatternBackground top="147.5px" />
     </Fragment>
   );
 }

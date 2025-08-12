@@ -1,11 +1,12 @@
 import { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 import { toast } from "react-toastify";
-import { useInfo } from "../context/userContext";
-import { getProducts, redeemProduct } from "../services/productsServices";
-import ProductsSorter from "./ProductsSorter";
-import { getHistory, getUser } from "../services/userService";
-import { gradientBackground } from "./theme/palette";
+import { useInfo } from "context/userContext";
+import { gradientBackground } from "components/theme/palette";
+import ProductsHeader from "./components/ProductsHeader";
+import { AeropayFourthIcon, AeropayThirdIcon } from "assets/Icons";
+import { getProducts, redeemProduct } from "services/productsServices";
+import { getHistory, getUser } from "services/userService";
 
 const StyledContainer = styled.div`
   display: flex;
@@ -35,7 +36,7 @@ const ProductsContainer = styled.div`
 const ProductCard = styled.div`
   width: 348px;
   height: 506px;
-  margin: 5rem 0.5rem;
+  margin: 2rem 0.5rem;
   background-color: #fff;
   .product {
     display: flex;
@@ -170,7 +171,7 @@ function ProductsList() {
       <StyledTitle>
         <span>Tech</span> products
       </StyledTitle>
-      <ProductsSorter
+      <ProductsHeader
         products={products}
         changeProducts={setProducts}
         filter={filter}
@@ -206,23 +207,13 @@ function ProductsList() {
                   ) : user && user.points > item.cost ? (
                     <>
                       Redeem for
-                      <img
-                        src={
-                          process.env.PUBLIC_URL + `/assets/icons/aeropay-3.svg`
-                        }
-                        alt="aeropay-3"
-                      />
+                      <AeropayThirdIcon />
                       {item.cost}
                     </>
                   ) : (
                     <>
                       You need
-                      <img
-                        src={
-                          process.env.PUBLIC_URL + `/assets/icons/aeropay-4.svg`
-                        }
-                        alt="aeropay-4"
-                      />
+                      <AeropayFourthIcon />
                       {user && user.points ? item.cost - user.points : ""}
                     </>
                   )}

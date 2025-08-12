@@ -2,7 +2,8 @@ export const palette = {
   gradientPrimary: "#176feb",
   gradientSecondary: "#ff80ff",
   background: "#f5f5f5",
-  text: "#252f3d",
+  textPrimary: "#252f3d",
+  textSecondary: "#7c899c",
   border: "#dae4f2",
 };
 

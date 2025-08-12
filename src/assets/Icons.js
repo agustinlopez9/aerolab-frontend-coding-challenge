@@ -4,6 +4,7 @@ import {
   AeropayFirst,
   AeropaySecond,
   AeropayThird,
+  AeropayFourth,
   MenuActive,
   Menu,
   ArrowDown,
@@ -26,6 +27,10 @@ export const AeropaySecondIcon = ({ ...rest }) => (
 
 export const AeropayThirdIcon = ({ ...rest }) => (
   <Icon src={AeropayThird} alt="aeropay-3.svg" {...rest} />
+);
+
+export const AeropayFourthIcon = ({ ...rest }) => (
+  <Icon src={AeropayFourth} alt="aeropay-4.svg" {...rest} />
 );
 
 export const MenuActiveIcon = ({ ...rest }) => (

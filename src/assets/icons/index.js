@@ -2,6 +2,7 @@ export { default as AerolabLogo } from "./aerolab-logo-1.svg";
 export { default as AeropayFirst } from "./aeropay-1.svg";
 export { default as AeropaySecond } from "./aeropay-2.svg";
 export { default as AeropayThird } from "./aeropay-3.svg";
+export { default as AeropayFourth } from "./aeropay-4.svg";
 export { default as MenuActive } from "./chevron-active.svg";
 export { default as Menu } from "./chevron-default.svg";
 export { default as ArrowDown } from "./arrow-down.svg";

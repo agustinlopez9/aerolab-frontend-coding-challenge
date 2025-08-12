@@ -5,8 +5,8 @@ import {
   WaveBackground,
   StyledToastContainer,
 } from "components/layout";
-import Main from "components/Main";
-import ProductsList from "components/ProductsList";
+import Hero from "views/hero/Hero";
+import ProductsList from "views/productsList/ProductsList";
 
 const Container = styled.div`
   display: flex;
@@ -27,7 +27,7 @@ function App() {
       <div className="App">
         <StyledToastContainer position="bottom-left" />
         <Navbar />
-        <Main />
+        <Hero />
         <ProductsList />
         <Footer />
       </div>
