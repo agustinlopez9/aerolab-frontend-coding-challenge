@@ -9,3 +9,6 @@ export { default as ArrowDown } from "./arrow-down.svg";
 export { default as GithubActive } from "./github-active.svg";
 export { default as Github } from "./github-default.svg";
 export { default as MenuDropdown } from "./menu-dropdown.svg";
+export { default as WalkthroughFirstStep } from "./walkthrough-1.svg";
+export { default as WalkthroughSecondStep } from "./walkthrough-2.svg";
+export { default as WalkthroughThirdStep } from "./walkthrough-3.svg";

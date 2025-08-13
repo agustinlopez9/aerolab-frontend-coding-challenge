@@ -6,6 +6,7 @@ import {
   StyledToastContainer,
 } from "components/layout";
 import Hero from "views/hero/Hero";
+import Walkthrough from "views/walkthrough/Walkthrough";
 import ProductsList from "views/productsList/ProductsList";
 
 const Container = styled.div`
@@ -27,6 +28,7 @@ function App() {
       <div className="App">
         <Navbar />
         <Hero />
+        <Walkthrough />
         <ProductsList />
         <Footer />
       </div>

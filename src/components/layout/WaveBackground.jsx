@@ -6,7 +6,7 @@ const WavePatternBackground = styled.div`
   position: absolute;
   top: ${(props) => props.top};
   width: 100%;
-  height: 756px;
+  height: 1323px;
   background-image: url(${SingleWavePattern});
   z-index: -1;
 `;

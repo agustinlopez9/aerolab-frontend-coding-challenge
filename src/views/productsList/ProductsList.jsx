@@ -13,7 +13,6 @@ const StyledContainer = styled.div`
   flex-direction: column;
   width: 100%;
   max-width: 1464px;
-  margin: 10rem auto 2rem auto;
 `;
 
 const StyledTitle = styled.h3`

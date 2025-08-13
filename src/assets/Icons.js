@@ -11,6 +11,9 @@ import {
   GithubActive,
   Github,
   MenuDropdown,
+  WalkthroughFirstStep,
+  WalkthroughSecondStep,
+  WalkthroughThirdStep,
 } from "./icons";
 
 export const AerolabLogoIcon = ({ ...rest }) => (
@@ -55,4 +58,16 @@ export const GithubIcon = ({ ...rest }) => (
 
 export const MenuDropdownIcon = ({ ...rest }) => (
   <Icon src={MenuDropdown} alt="menu-dropdown.svg" {...rest} />
+);
+
+export const WalkthroughFirstStepIcon = ({ ...rest }) => (
+  <Icon src={WalkthroughFirstStep} alt="walkthrough-1.svg" {...rest} />
+);
+
+export const WalkthroughSecondStepIcon = ({ ...rest }) => (
+  <Icon src={WalkthroughSecondStep} alt="walkthrough-2.svg" {...rest} />
+);
+
+export const WalkthroughThirdStepIcon = ({ ...rest }) => (
+  <Icon src={WalkthroughThirdStep} alt="walkthrough-3.svg" {...rest} />
 );

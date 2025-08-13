@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { gradientBackground } from "components/theme/palette";
+import { gradientBackgroundWithOpacity } from "components/theme/palette";
 import { HeroDesktop } from "assets/illustrations";
 
 const BackgroundImage = styled.div`
@@ -16,8 +16,7 @@ const BackgroundImage = styled.div`
   div {
     width: 722px;
     height: 600px;
-    ${gradientBackground}
-    opacity: 0.51;
+    ${gradientBackgroundWithOpacity}
     box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.12);
     border-radius: 6.5rem;
     z-index: -1;

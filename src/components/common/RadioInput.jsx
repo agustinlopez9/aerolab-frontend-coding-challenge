@@ -12,6 +12,11 @@ const RadioInputLabel = styled.label`
   cursor: pointer;
   border-radius: 0.75rem;
   background-color: #e5f0ff;
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   input {
     display: none;
   }
@@ -34,7 +39,9 @@ function RadioInput({ name, currentState, setState, title, value, ...rest }) {
         checked={currentState === value}
         value={value}
       />
-      <GradientText>{title}</GradientText>
+      <GradientText width="inherit" height="inherit">
+        {title}
+      </GradientText>
     </RadioInputLabel>
   );
 }
