@@ -1,9 +1,4 @@
-const handleSortLow = (
-  setSorting,
-  filteredProducts,
-  changeFilteredProducts,
-) => {
-  setSorting("low");
+const handleSortLow = (filteredProducts, changeFilteredProducts) => {
   var sortedProducts = [...filteredProducts];
   sortedProducts.sort((a, b) => {
     return a.cost - b.cost;
@@ -11,12 +6,7 @@ const handleSortLow = (
   changeFilteredProducts(sortedProducts);
 };
 
-const handleSortHigh = (
-  setSorting,
-  filteredProducts,
-  changeFilteredProducts,
-) => {
-  setSorting("high");
+const handleSortHigh = (filteredProducts, changeFilteredProducts) => {
   var sortedProducts = [...filteredProducts];
   sortedProducts.sort((a, b) => {
     return b.cost - a.cost;
@@ -24,12 +14,7 @@ const handleSortHigh = (
   changeFilteredProducts(sortedProducts);
 };
 
-const handleSortRecent = (
-  setSorting,
-  filteredProducts,
-  changeFilteredProducts,
-) => {
-  setSorting("recent");
+const handleSortRecent = (filteredProducts, changeFilteredProducts) => {
   let sortedProducts = [...filteredProducts];
   sortedProducts.sort((a, b) => {
     return a._id < b._id ? -1 : a._id > b._id ? 1 : 0;
@@ -37,31 +22,14 @@ const handleSortRecent = (
   changeFilteredProducts(sortedProducts);
 };
 
-const handleSort = (
-  sortType,
-  setSorting,
-  filteredProducts,
-  changeFilteredProducts,
-) => {
+const handleSort = (sortType, filteredProducts, changeFilteredProducts) => {
   switch (sortType) {
     case "recent":
-      return handleSortRecent(
-        setSorting,
-        filteredProducts,
-        changeFilteredProducts,
-      );
+      return handleSortRecent(filteredProducts, changeFilteredProducts);
     case "low":
-      return handleSortLow(
-        setSorting,
-        filteredProducts,
-        changeFilteredProducts,
-      );
+      return handleSortLow(filteredProducts, changeFilteredProducts);
     case "high":
-      return handleSortHigh(
-        setSorting,
-        filteredProducts,
-        changeFilteredProducts,
-      );
+      return handleSortHigh(filteredProducts, changeFilteredProducts);
     default:
       return;
   }

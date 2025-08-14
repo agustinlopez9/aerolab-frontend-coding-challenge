@@ -1,12 +1,13 @@
 import { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 import { toast } from "react-toastify";
-import { useInfo } from "context/userContext";
-import { gradientBackground } from "components/theme/palette";
+import { useUserContext } from "context";
 import ProductsHeader from "./components/ProductsHeader";
-import { AeropayFourthIcon, AeropayThirdIcon } from "assets/Icons";
+import ProductItem from "./components/ProductItem";
+import { SystemErrorIcon, SystemSuccessIcon } from "assets/Icons";
 import { getProducts, redeemProduct } from "services/productsServices";
 import { getHistory, getUser } from "services/userService";
+import { palette } from "components/theme/palette";
 
 const StyledContainer = styled.div`
   display: flex;
@@ -33,84 +34,12 @@ const ProductsContainer = styled.div`
   width: 100%;
 `;
 
-const ProductCard = styled.div`
-  width: 348px;
-  height: 506px;
-  margin-bottom: 5rem;
-  background-color: #fff;
-  .product {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 431px;
-    border: 1px solid #dae4f2;
-    border-radius: 1rem;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
-    .product-img {
-      display: flex;
-      height: 345px;
-      justify-content: center;
-      align-items: center;
-    }
-    .product-name {
-      border-top: 1px solid #dae4f2;
-      display: flex;
-      align-items: center;
-      padding-left: 1rem;
-      text-align: left;
-      height: 88px;
-      color: #252f3d;
-      font-weight: 600;
-      p {
-        font-size: 1rem;
-      }
-      span {
-        text-transform: uppercase;
-        color: #7c899c;
-        font-size: 0.825rem;
-      }
-    }
-  }
-  img {
-    width: 100%;
-  }
-`;
-
-const Button = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  font-size: 1.125rem;
-  font-weight: 600;
-  width: 100%;
-  height: 59px;
-  margin: 1.5rem auto;
-  border: none;
-  border-radius: 1rem;
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
-  ${(props) =>
-    props.primary
-      ? `
-                color: #fff;
-                ${gradientBackground}
-            `
-      : `
-                color: #7C899C;
-                background: #E6EDF7;
-            `}
-  img {
-    width: 24px;
-    margin: 0.5rem;
-  }
-`;
-
 function ProductsList() {
-  const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState({});
+  const [loading, setLoading] = useState(false);
   const [filter, setFilter] = useState("All Products");
   const [filteredProducts, setFilteredProducts] = useState({});
-  const { user, setUser } = useInfo();
+  const { user, setUser } = useUserContext();
   const itemsRef = useRef([]);
 
   useEffect(() => {
@@ -141,9 +70,12 @@ function ProductsList() {
           setUser(userdata.data);
           toast.success(
             <p>
-              <span style={{ color: "#252F3D" }}>{productName}</span> redeemed
-              successfully
+              <span style={{ color: palette.textPrimary }}>{productName}</span>{" "}
+              redeemed successfully
             </p>,
+            {
+              icon: <SystemSuccessIcon />,
+            },
           );
           itemsRef.current[index].style.opacity = "100%";
           setLoading(0);
@@ -151,14 +83,8 @@ function ProductsList() {
         handleGetHistory();
       })
       .catch((err) => {
-        console.log(err);
-        toast.error("There was a problem with the transaction", {
-          icon: (
-            <img
-              src={process.env.PUBLIC_URL + "assets/icons/system-error.svg"}
-              alt="error-icon"
-            />
-          ),
+        toast.error(<p>There was a problem with the transaction</p>, {
+          icon: <SystemErrorIcon />,
         });
         itemsRef.current[index].style.opacity = "100%";
         setLoading(0);
@@ -182,42 +108,15 @@ function ProductsList() {
         {products &&
           Object.values(filteredProducts).map((item, index) => {
             return (
-              <ProductCard key={index}>
-                <div className="product">
-                  <div className="product-img">
-                    <img src={item.img.hdUrl} alt={item.name} />
-                  </div>
-                  <div className="product-name">
-                    <p>
-                      {item.name}
-                      <br />
-                      <span>{item.category}</span>
-                    </p>
-                  </div>
-                </div>
-                <Button
-                  ref={(e) => (itemsRef.current[index] = e)}
-                  id={item._id}
-                  primary={user && user.points > item.cost ? true : false}
-                  onClick={() => handleRedeem(index, item._id, item.name)}
-                >
-                  {loading === item._id ? (
-                    "Processing..."
-                  ) : user && user.points > item.cost ? (
-                    <>
-                      Redeem for
-                      <AeropayThirdIcon />
-                      {item.cost}
-                    </>
-                  ) : (
-                    <>
-                      You need
-                      <AeropayFourthIcon />
-                      {user && user.points ? item.cost - user.points : ""}
-                    </>
-                  )}
-                </Button>
-              </ProductCard>
+              <ProductItem
+                key={index}
+                product={item}
+                user={user}
+                loading={loading}
+                handleRedeem={handleRedeem}
+                index={index}
+                itemsRef={itemsRef}
+              />
             );
           })}
       </ProductsContainer>

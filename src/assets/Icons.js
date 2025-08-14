@@ -14,6 +14,8 @@ import {
   WalkthroughFirstStep,
   WalkthroughSecondStep,
   WalkthroughThirdStep,
+  SystemError,
+  SystemSuccess,
 } from "./icons";
 
 export const AerolabLogoIcon = ({ ...rest }) => (
@@ -70,4 +72,12 @@ export const WalkthroughSecondStepIcon = ({ ...rest }) => (
 
 export const WalkthroughThirdStepIcon = ({ ...rest }) => (
   <Icon src={WalkthroughThirdStep} alt="walkthrough-3.svg" {...rest} />
+);
+
+export const SystemErrorIcon = ({ ...rest }) => (
+  <Icon src={SystemError} alt="system-error.svg" {...rest} />
+);
+
+export const SystemSuccessIcon = ({ ...rest }) => (
+  <Icon src={SystemSuccess} alt="system-success.svg" {...rest} />
 );

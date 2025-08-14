@@ -6,6 +6,8 @@ export const palette = {
   textPrimary: "#252f3d",
   textSecondary: "#7c899c",
   border: "#dae4f2",
+  success: "#29cc74",
+  error: "#e07f4f",
 };
 
 export const gradientBackground = `background: ${palette.gradientPrimary};

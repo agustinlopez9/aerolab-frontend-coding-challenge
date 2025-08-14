@@ -12,3 +12,5 @@ export { default as MenuDropdown } from "./menu-dropdown.svg";
 export { default as WalkthroughFirstStep } from "./walkthrough-1.svg";
 export { default as WalkthroughSecondStep } from "./walkthrough-2.svg";
 export { default as WalkthroughThirdStep } from "./walkthrough-3.svg";
+export { default as SystemError } from "./system-error.svg";
+export { default as SystemSuccess } from "./system-success.svg";

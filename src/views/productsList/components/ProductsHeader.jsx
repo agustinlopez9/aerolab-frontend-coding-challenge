@@ -53,6 +53,10 @@ const FilterContainer = styled.div`
     border-radius: 1rem;
     user-select: none;
     cursor: pointer;
+    img {
+      position: relative;
+      left: 0.5rem;
+    }
   }
 `;
 
@@ -150,14 +154,10 @@ function ProductsHeader({
             title={sort.title}
             currentState={sorting}
             defaultChecked={sort.defaultChecked}
-            onClick={() =>
-              handleSort(
-                sort.value,
-                setSorting,
-                filteredProducts,
-                changeFilteredProducts,
-              )
-            }
+            onClick={() => {
+              setSorting(sort.value);
+              handleSort(sort.value, filteredProducts, changeFilteredProducts);
+            }}
             width="165px"
             height="43px"
           />
